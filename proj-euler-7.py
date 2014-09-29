@@ -1,32 +1,34 @@
 #! /usr/bin/python
-
 #10001st prime
 
 import math
 
-number = input("Enter a number: ")
+counter = 1
+isPrime = False
+primesList = [2]
+number = 3
 
-def PrimeOrNot(number):
-	isPrime = True
-	primes = []
-	primesCounter = 0
-	while primesCounter < 6:
-		for f in range (2, math.trunc(math.sqrt(number))+1):
-			if number % f == 0:
-				isPrime = False
-			else:
-				isPrime = True
+while counter < 10001:
+    for prime in primesList:
+        if number % prime == 0:
+            isPrime = False
+            break
+        else:
+            isPrime = True
 
-		if isPrime == True:
-			primes.append(number)
-			primesCounter += 1
+    if isPrime == True:
+        primesList.append(number)
+        counter += 1
+        isPrime = False
 
-		number += 2
+    number += 1
 
-	print primesCounter
-	print primes
+print counter
+print number-1
 
-PrimeOrNot(number)
+    #[check if number is prime by dividing by all prime factors before number]
+    #[if number is prime, add number to primesList, counter += 1]
+    #number += 1
 
 
 
